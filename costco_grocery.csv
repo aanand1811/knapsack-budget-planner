@@ -1,0 +1,55 @@
+title,price,rating,subcategory,vegetarian
+Organic Whole Milk (1 gallon),6.99,4.7,Dairy,True
+Large Eggs (24-count),8.49,4.8,Dairy,True
+Shredded Mozzarella Cheese (5 lb),14.99,4.6,Dairy,True
+Greek Yogurt Variety Pack,11.99,4.5,Dairy,True
+Butter Unsalted (4 sticks),7.49,4.6,Dairy,True
+Cheddar Cheese Slices (48-count),10.99,4.4,Dairy,True
+Cream Cheese (3 lb),8.99,4.5,Dairy,True
+Jasmine Rice (25 lb),18.99,4.7,Grains,True
+Whole Wheat Bread (2 loaves),7.99,4.3,Grains,True
+Rolled Oats (10 lb),11.49,4.6,Grains,True
+Pasta Variety Pack (6 lb),8.99,4.5,Grains,True
+Flour Tortillas (40-count),7.49,4.4,Grains,True
+Quinoa (4.5 lb),12.99,4.6,Grains,True
+Granola Bars (48-count),15.99,4.4,Grains,True
+Banana (3 lb bunch),1.99,4.5,Produce,True
+Baby Spinach (2 lb),5.99,4.6,Produce,True
+Strawberries (4 lb),8.99,4.7,Produce,True
+Blueberries (3 lb),9.99,4.8,Produce,True
+Broccoli Florets (3 lb),5.49,4.5,Produce,True
+Avocados (5-count),6.99,4.6,Produce,True
+Sweet Potatoes (5 lb),6.49,4.5,Produce,True
+Mixed Salad Greens (2 lb),5.99,4.4,Produce,True
+Baby Carrots (5 lb),4.99,4.3,Produce,True
+Apples Gala (5 lb),7.49,4.5,Produce,True
+Chicken Breast Boneless (6 lb),19.99,4.6,Proteins,False
+Ground Beef 85% Lean (4 lb),17.99,4.4,Proteins,False
+Salmon Fillets (3 lb),24.99,4.7,Proteins,False
+Canned Tuna (8-pack),12.99,4.5,Proteins,False
+Rotisserie Chicken,7.99,4.8,Proteins,False
+Black Beans Canned (8-pack),9.49,4.5,Proteins,True
+Chickpeas Canned (8-pack),9.99,4.4,Proteins,True
+Lentils Dry (4 lb),7.99,4.6,Proteins,True
+Peanut Butter (2 jars),11.99,4.7,Proteins,True
+Almonds Raw (3 lb),19.99,4.7,Snacks,True
+Mixed Nuts (3 lb),21.99,4.6,Snacks,True
+Trail Mix (3 lb),14.99,4.5,Snacks,True
+Popcorn (30-pack),11.99,4.3,Snacks,True
+Dark Chocolate (2 lb),13.99,4.6,Snacks,True
+Crackers Variety Pack,10.99,4.3,Snacks,True
+Hummus (4-pack),9.99,4.5,Snacks,True
+Olive Oil Extra Virgin (2 L),19.99,4.8,Pantry,True
+Coconut Oil (84 oz),16.99,4.5,Pantry,True
+Apple Cider Vinegar (2-pack),9.49,4.4,Pantry,True
+Honey (5 lb),14.99,4.7,Pantry,True
+Tomato Sauce (6-pack),9.99,4.4,Pantry,True
+Soy Sauce (2-pack),7.99,4.3,Pantry,True
+Chicken Broth (6-pack),11.99,4.5,Pantry,False
+Maple Syrup (2-pack),15.99,4.6,Pantry,True
+Sparkling Water (35-pack),17.99,4.5,Beverages,True
+Orange Juice (2 x 59 oz),11.99,4.4,Beverages,True
+Cold Brew Coffee (12-pack),19.99,4.6,Beverages,True
+Green Tea (100-pack),14.99,4.5,Beverages,True
+Protein Shake (18-pack),39.99,4.4,Beverages,True
+Coconut Water (12-pack),15.99,4.5,Beverages,True
