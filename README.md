@@ -88,9 +88,9 @@ The app will open in your browser at http://localhost:8501.
 
 ```
 smart_budget_planner/
-├── app.py                 Streamlit UI (AI-assisted styling, per project rules)
-├── knapsack.py            Core 0/1 Knapsack DP algorithm (manually authored)
-├── data_loader.py         Dataset loading and filtering (manually authored)
+├── app.py                 Streamlit UI
+├── knapsack.py            Core 0/1 Knapsack DP algorithm 
+├── data_loader.py         Dataset loading and filtering 
 ├── costco_grocery.csv     Cleaned grocery dataset
 ├── requirements.txt       Python dependencies
 └── README.md              This file
