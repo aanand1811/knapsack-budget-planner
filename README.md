@@ -1,8 +1,8 @@
 # Smart Budget Planner
 ### Optimizing Grocery Shopping Using the 0/1 Knapsack Algorithm
 
-**MSML606 Extra Credit Project 2, Spring 2026**  
-Anoushka Anand, FNU Hardik, University of Maryland
+**MSML606 Extra Credit Project 2**  
+Anoushka Anand, FNU Hardik
 
 ---
 
