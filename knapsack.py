@@ -15,7 +15,6 @@ Time complexity:  O(n * W)  where n = number of items, W = budget in cents
 Space complexity: O(n * W)  for the DP table used in backtracking
 """
 
-
 def solve_knapsack(items: list, budget_dollars: float) -> dict:
     """
     Solve the 0/1 Knapsack problem for a list of grocery items.
@@ -40,7 +39,7 @@ def solve_knapsack(items: list, budget_dollars: float) -> dict:
         'total_score'    : float        - sum of rating scores
     """
 
-    # --- Step 1: Convert prices to integer cents ---
+    #  Step 1: Convert prices to integer cents
     # Dynamic programming requires the budget to be a discrete integer.
     # A decimal like $12.99 cannot be used as an array index directly.
     # Multiplying by 100 and rounding converts $12.99 -> 1299 cents,
@@ -67,10 +66,10 @@ def solve_knapsack(items: list, budget_dollars: float) -> dict:
     if n == 0 or W == 0:
         return {"selected_items": [], "total_price": 0.0, "total_score": 0.0}
 
-    # --- Step 2: Build the DP table ---
+    # Step 2: Build the DP table 
     # dp[i][w] = the maximum total value achievable by considering the
     #            first i items with a budget of exactly w cents.
-    #
+    
     # Recurrence relation:
     #   Option A — skip item i:
     #       dp[i][w] = dp[i-1][w]
@@ -97,7 +96,7 @@ def solve_knapsack(items: list, budget_dollars: float) -> dict:
                 if with_item > dp[i][w]:
                     dp[i][w] = with_item
 
-    # --- Step 3: Backtrack to recover which items were selected ---
+    #  Step 3: Backtrack to recover which items were selected
     # Starting from dp[n][W], walk backwards through the table.
     # If dp[i][w] differs from dp[i-1][w], item i was included —
     # record it and subtract its price from the remaining budget w.

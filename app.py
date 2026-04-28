@@ -17,7 +17,7 @@ import pandas as pd
 from knapsack import solve_knapsack
 from data_loader import load_data, filter_items, get_subcategories
 
-# ── Page config ────────────────────────────────────────────────────────────────
+# Page config 
 st.set_page_config(
     page_title="Smart Budget Planner",
     page_icon="",
@@ -25,7 +25,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ── CSS ────────────────────────────────────────────────────────────────────────
+# CSS 
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap');
@@ -191,7 +191,7 @@ html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; }
 </style>
 """, unsafe_allow_html=True)
 
-# ── Load data ──────────────────────────────────────────────────────────────────
+# Load data 
 @st.cache_data
 def get_data():
     return load_data()
@@ -200,7 +200,7 @@ df = get_data()
 all_subcategories = get_subcategories(df)
 all_titles = sorted(df["title"].tolist())
 
-# ── Sidebar ────────────────────────────────────────────────────────────────────
+# Sidebar
 with st.sidebar:
     st.markdown("## Planner Settings")
     st.markdown("---")
@@ -263,7 +263,7 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
 
-# ── Hero ───────────────────────────────────────────────────────────────────────
+# Hero 
 st.markdown(
     """
     <div class='hero'>
@@ -275,7 +275,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# ── Prepare pools ──────────────────────────────────────────────────────────────
+# Prepare pools
 all_items = filter_items(
     df,
     subcategories=selected_subs if selected_subs else None,
@@ -307,7 +307,7 @@ if not pool_items and not must_have_items:
     )
     st.stop()
 
-# ── Run 0/1 Knapsack ───────────────────────────────────────────────────────────
+# Run 0/1 Knapsack 
 if pool_items and remaining_budget > 0:
     result        = solve_knapsack(pool_items, budget_dollars=remaining_budget)
     algo_selected = result["selected_items"]
@@ -327,7 +327,7 @@ avg_rating   = round(total_score / len(all_selected), 2) if all_selected else 0.
 budget_pct   = int((total_price / budget) * 100) if budget > 0 else 0
 pinned_pct   = int((must_have_cost / budget) * 100) if budget > 0 else 0
 
-# ── Stats ──────────────────────────────────────────────────────────────────────
+# Stats 
 c1, c2, c3, c4 = st.columns(4)
 with c1:
     st.markdown(
@@ -379,7 +379,7 @@ if must_have_items:
         unsafe_allow_html=True,
     )
 
-# ── Render helper ──────────────────────────────────────────────────────────────
+#  Render helper 
 def render_card(item: dict, pinned: bool = False) -> None:
     veg_html  = "<span class='veg-badge'>Veg</span>" if item["vegetarian"] else ""
     pin_html  = "<span class='pin-badge'>Pinned</span>" if pinned else ""
@@ -408,7 +408,7 @@ def render_card(item: dict, pinned: bool = False) -> None:
         unsafe_allow_html=True,
     )
 
-# ── Must-have items ────────────────────────────────────────────────────────────
+# Must-have items 
 if must_have_items:
     st.markdown(
         "<div class='section-header'>Must-Have Items (Pinned)</div>",
@@ -417,7 +417,7 @@ if must_have_items:
     for item in must_have_items:
         render_card(item, pinned=True)
 
-# ── Algorithm-selected items ───────────────────────────────────────────────────
+# Algorithm-selected items
 if algo_selected:
     header = "Algorithm Selection" if must_have_items else "Optimal Selection"
     st.markdown(
@@ -456,7 +456,7 @@ else:
         unsafe_allow_html=True,
     )
 
-# ── Algorithm note ─────────────────────────────────────────────────────────────
+#  Algorithm note 
 if all_selected:
     pinned_note = (
         f" After reserving ${must_have_cost:.2f} for {len(must_have_items)} "
@@ -478,7 +478,7 @@ if all_selected:
         unsafe_allow_html=True,
     )
 
-# ── All available items ────────────────────────────────────────────────────────
+#  All available items 
 with st.expander("View All Available Items"):
     display_df = pd.DataFrame(all_items)[
         ["title", "subcategory", "price", "rating", "vegetarian"]

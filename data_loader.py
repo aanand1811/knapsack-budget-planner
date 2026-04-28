@@ -7,7 +7,6 @@ Loads and preprocesses the Costco grocery CSV dataset.
 import pandas as pd
 import os
 
-
 def load_data(csv_path: str = None) -> pd.DataFrame:
     if csv_path is None:
         base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -28,7 +27,6 @@ def load_data(csv_path: str = None) -> pd.DataFrame:
 
     return df.reset_index(drop=True)
 
-
 def filter_items(
     df: pd.DataFrame,
     subcategories: list = None,
@@ -40,7 +38,6 @@ def filter_items(
     if subcategories:
         filtered = filtered[filtered["subcategory"].isin(subcategories)]
     return filtered.to_dict(orient="records")
-
 
 def get_subcategories(df: pd.DataFrame) -> list:
     return sorted(df["subcategory"].unique().tolist())
