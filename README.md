@@ -1,72 +1,73 @@
 # Smart Budget Planner
 ### Optimizing Grocery Shopping Using the 0/1 Knapsack Algorithm
 
-**MSML606 Extra Credit Project 2 — Spring 2026**
-Anoushka Anand · FNU Hardik · University of Maryland
+**MSML606 Extra Credit Project 2, Spring 2026**  
+Anoushka Anand, FNU Hardik, University of Maryland
 
 ---
 
 ## What Is This?
 
-The Smart Budget Planner is a web application that answers a simple question:
+The Smart Budget Planner is a simple web app that answers one question:
 
-> Given my Costco budget, which items should I buy to get the best value?
+> Given my Costco budget, what should I buy to get the best value?
 
-You set your budget. The app instantly finds the optimal combination of grocery items that fits within your spending limit while achieving the highest possible total customer rating score. No computer science background is needed to use it.
+You enter your budget and the app finds the best combination of grocery items that fits within that amount while maximizing the total customer rating. You do not need any technical background to use it.
 
 ---
 
-## The Algorithm: 0/1 Knapsack (Dynamic Programming)
+## The Algorithm
 
-Each grocery item has a price (the cost) and a customer rating score (the value). The user's budget is the capacity. The 0/1 Knapsack algorithm finds the combination of items that:
+Each item has:
+- a price  
+- a customer rating  
 
-- Fits within the budget
-- Maximizes the total rating score
-- Selects each item at most once (0 or 1 times — no partial selections)
+The budget acts as a limit. The goal is to pick items so that:
+- the total price stays within the budget  
+- the total rating is as high as possible  
+- each item is chosen at most once  
 
-The algorithm builds a 2D dynamic programming table of size n x W, where n is the number of items and W is the budget in cents. It then backtracks through the table to recover exactly which items were selected.
+This is solved using the 0/1 Knapsack approach. The algorithm builds a table based on the number of items and the budget, then traces back to find which items were selected.
 
-Prices are converted to integer cents (for example, $12.99 becomes 1299) so the DP table index is exact and avoids floating-point errors.
+Prices are converted into cents so the calculations stay exact.
 
-**Time complexity:** O(n x W)
+Time complexity is O(n x W), where n is the number of items and W is the budget in cents.
 
 ---
 
 ## Dataset
 
-**Source:** Costco Grocery Dataset on Kaggle
-**Link:** https://www.kaggle.com/datasets/elvinrustam/grocery-dataset
+Source: Costco Grocery Dataset from Kaggle  
+https://www.kaggle.com/datasets/elvinrustam/grocery-dataset
 
-The dataset was scraped from Costco's online marketplace. The working file (costco_grocery.csv) is a cleaned subset of 54 items across 7 grocery categories.
+The dataset comes from Costco’s online store. The version used here is a cleaned subset of 54 items across different categories.
 
-| Column | Description | Role in Algorithm |
-|---|---|---|
-| title | Product name | Shown to user |
-| price | Price in USD | Knapsack weight (cost constraint) |
-| rating | Customer rating (1 to 5 stars) | Knapsack value (what we maximize) |
-| subcategory | Grocery category | UI category filter |
-| vegetarian | True or False | Vegetarian mode filter |
+| Column | Description |
+|--------|------------|
+| title | Product name |
+| price | Price in USD |
+| rating | Customer rating (1 to 5) |
+| subcategory | Category for filtering |
+| vegetarian | Whether the item is vegetarian |
 
 ---
 
 ## Features
 
-**Budget Slider** — Set any budget from $10 to $300. The algorithm recalculates the optimal selection instantly.
-
-**Must-Have Items** — Pin specific items that must always be included. Their cost is deducted from the budget first and the algorithm optimizes the remainder.
-
-**Vegetarian Mode** — A single toggle excludes all non-vegetarian products before the algorithm runs.
-
-**Subcategory Filter** — Focus on specific grocery categories such as Dairy, Produce, Proteins, Grains, Snacks, Pantry, or Beverages.
+- Budget slider to set how much you want to spend  
+- Option to include must-have items  
+- Vegetarian mode to filter out non-vegetarian items  
+- Category filter to focus on specific types of products  
 
 ---
 
 ## How to Run
 
 ### 1. Clone the repository
+
 ```
-git clone https://github.com/[your-username]/smart-budget-planner.git
-cd smart-budget-planner
+git clone https://github.com/aanand1811/knapsack-budget-planner.git
+cd knapsack-budget-planner
 ```
 
 ### 2. Install dependencies
@@ -97,33 +98,28 @@ smart_budget_planner/
 
 ---
 
-## Academic Integrity Statement
+## AI Usage Statement
 
-This project was completed for MSML606 Extra Credit Project 2 at the University of Maryland, Spring 2026.
+This project follows the MSML606 AI policy.
 
-**Manually authored by the team:**
-- Core knapsack algorithm (knapsack.py) including all DP logic, backtracking, and cent conversion
-- Data loading and preprocessing (data_loader.py)
-- All code comments throughout the codebase
-- This README
+The following parts were written manually:
+- Knapsack algorithm implementation in knapsack.py  
+- Data processing and filtering in data_loader.py  
+- Overall application logic  
+- This README  
 
-**AI-assisted (per project rules):**
-- UI styling and layout in app.py
-- Slide design and layout for the presentation
+AI tools were used only for:
+- UI assistance in app.py  
+- Minor help with formatting  
 
-No AI was used to generate the core algorithm logic or the initial approach to solving the problem.
-
-**Dataset:** Costco Grocery Dataset sourced from Kaggle (see link above). No proprietary data was used.
+No AI was used to generate the algorithm or the core solution.
 
 ---
 
 ## For Non-CS Readers
 
-Think of it like a very smart shopping list generator:
+Think of this like a smart shopping assistant.
 
-1. You tell it your budget (say $100)
-2. It looks at every possible combination of grocery items
-3. It picks the combination where the items' customer ratings add up to the highest total without going over your budget
-4. It shows you exactly what to buy and how much it costs
+You give it a budget. It checks different combinations of items and finds the one that gives you the best overall rating without going over your budget.
 
-The math behind it is the same kind used in logistics, resource planning, and financial portfolio optimization — applied to your grocery cart.
+It then tells you exactly what to buy.
